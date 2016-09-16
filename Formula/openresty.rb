@@ -1,4 +1,4 @@
-class NgxOpenresty < Formula
+class Openresty < Formula
   homepage "http://openresty.org/"
 
   stable do
