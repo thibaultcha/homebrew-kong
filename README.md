@@ -2,9 +2,10 @@
 
 Homebrew tap for [Kong] :beer:
 
-> Kong is a scalable and customizable API Management Layer built on top of Nginx.
+> Kong is a scalable and customizable API Management Layer built on top of
+> Nginx.
 
-## Install (stable)
+### Install (stable)
 
 ```shell
 $ brew tap mashape/kong
@@ -13,28 +14,32 @@ $ brew install kong
 
 ##### Options
 
-###### Install Cassandra
+### Install devel (release candidates)
 
-If you want to use a local Cassandra cluster, this tap can also install the homebrew/cassandra formula if you run it with:
-
-```shell
-$ brew update # for the cassandra formula
-$ brew install kong --with-cassandra
-```
-
-## Install HEAD (unstable)
+When a release candidate is available, it can be installed via this Formula's
+devel channel:
 
 ```
 $ brew tap mashape/kong
-$ brew install kong --HEAD
+$ brew install --devel kong
 ```
 
-## Use Kong
+### Install HEAD (unstable)
+
+HEAD points to Kong's `next` branch, the development branch for cutting edge
+installs:
+
+```
+$ brew tap mashape/kong
+$ brew install --HEAD kong
+```
+
+### Use Kong
 
 ```shell
 $ kong --help
 ```
 
-Get started by reading the documentation at: http://getkong.org/docs.
+Get started by reading the documentation at: https://getkong.org/docs.
 
-[Kong]: http://getkong.org
+[Kong]: https://getkong.org

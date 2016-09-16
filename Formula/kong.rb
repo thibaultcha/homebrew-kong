@@ -1,25 +1,29 @@
 class Kong < Formula
   homepage "https://getkong.org"
-  desc "Open-source Microservice & API Gateway"
+  desc "Open-source Microservice and API Gateway"
 
   stable do
-    url "https://github.com/Mashape/kong/archive/0.5.4.tar.gz"
-    sha256 "bdfa5fb49c07f83aabd2a8d7e308226f6f0363865f28c30504c70ba73b574f90"
+    url "https://github.com/Mashape/kong.git", :tag => "0.9.1"
   end
+
+  #devel do
+    #url "https://github.com/mashape/kong.git", :tag => "0.9.0rc3"
+  #end
 
   head do
-    url "https://github.com/mashape/kong.git", :branch => "next"
+    url "https://github.com/Mashape/kong.git", :branch => "next"
   end
 
+  depends_on "serf"
   depends_on "openssl"
   depends_on "dnsmasq"
-  depends_on "thibaultcha/kong/luarocks"
-  depends_on "thibaultcha/kong/ngx_openresty"
+  depends_on "mashape/kong/luarocks"
+  depends_on "mashape/kong/openresty"
 
-  option "with-cassandra", "Also install the cassandra formula from homebrew/cassandra"
-  depends_on "cassandra" => :optional
+  conflicts_with "cassandra", :because => "Kong only supports Cassandra 2.1/2.2"
 
   def install
-    system "make install"
+    system "luarocks make OPENSSL_DIR=#{Formula['openssl'].opt_prefix}"
+    bin.install "bin/kong"
   end
 end
