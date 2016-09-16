@@ -12,8 +12,6 @@ class Openresty < Formula
   option "with-debug", "Compile with support for debug logging but without proper gdb debugging symbols"
 
   def install
-    luajit = Formula["mashape/kong/luajit"]
-
     args = [
       "--prefix=#{prefix}",
       "--with-ipv6",

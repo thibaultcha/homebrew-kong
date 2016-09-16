@@ -17,8 +17,8 @@ class Kong < Formula
   depends_on "serf"
   depends_on "openssl"
   depends_on "dnsmasq"
-  depends_on "mashape/kong/luarocks"
-  depends_on "mashape/kong/openresty"
+  depends_on "thibaultcha/kong/luarocks"
+  depends_on "thibaultcha/kong/openresty"
 
   conflicts_with "cassandra", :because => "Kong only supports Cassandra 2.1/2.2"
 
